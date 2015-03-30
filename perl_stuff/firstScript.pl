@@ -3,6 +3,7 @@
 ## use strict;
 use warnings;
 
+
 %words = qw(
 	fred	camel
 	barney	llama
@@ -13,6 +14,10 @@ use warnings;
 print ("What's your name?\n");
 $name = <STDIN>;
 chomp ($name);
+$original_name = $name;
+$name =~ s/\W.*//;
+$name =~ tr/A-Z/a-z/;
+
 
 if ($name =~ /^randal\b/i) {
 	print("Hello to you, $name! Good of you to be here !\n");
