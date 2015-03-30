@@ -3,6 +3,22 @@
 ## use strict;
 use warnings;
 
+sub good_word {
+	my($somename, $someguess) = @_;		# nomer les paramètres
+	$somename =~ s/\W.*//;			# se debarrasser de tout ce qui suit le premier mot
+	$somename =~ ~ tr/A-Z/a-z/;		# tout en minuscules
+	
+	if ($somename eq "randal") {
+		return 1;			# valeur de retour == true
+	} elsif (($words{$somename} || "groucho") eq $someguess) {
+		return 1;			# valeur de retour == true
+	} else {
+	return 0; 				# valeur de retour == false
+	}
+}
+
+
+
 
 %words = qw(
 	fred	camel
