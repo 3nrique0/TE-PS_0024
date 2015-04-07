@@ -363,9 +363,12 @@ for j in test.chromList:
 	for i in vector :
 		plt.clf()
 		toPlotFull = dict((k, v) for (k, v) in chnDistanceFilter.iteritems() if v < max_distance)
-		a, b, c = plt.hist(toPlotFull.values(),  bins = i, range=plotrange, histtype='step'
+		a, b, c = plt.hist(toPlotFull.values(),  bins = i
+				, range=plotrange
+				#~ , histtype='step'
 				, color=['red'], label=['All genes']
 				, cumulative = True
+				, stacked = True
 				)
 		counter +=1
 		plt.title('Ch ' + str(chrom_counter) + \
@@ -383,7 +386,8 @@ for j in test.chromList:
 		patate = test.getDistanceFiltered(temp_sp, test.distance)
 		toPlotSp = dict((k, v) for (k, v) in patate.iteritems() if v < max_distance)
 		a, b, c = plt.hist( toPlotSp.values(), bins = i\
-			, range=plotrange, histtype='step'\
+			, range=plotrange
+			#~ , histtype='step'\
 			, color=['cyan'], label=['SP']
 			, cumulative = True
 			)
@@ -396,7 +400,8 @@ for j in test.chromList:
 		patate = test.getDistanceFiltered(temp_nosp, test.distance)
 		toPlotNosp = dict((k, v) for (k, v) in patate.iteritems() if v < max_distance)
 		a, b, c = plt.hist( toPlotNosp.values(), bins = i\
-			, range=plotrange, histtype='step'\
+			, range=plotrange
+			#~ , histtype='step'\
 			, color=['blue'], label=['noSP']
 			, cumulative = True
 			)
