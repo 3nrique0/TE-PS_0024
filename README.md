@@ -2,6 +2,9 @@
 
 Testing for my firtst Github training
 
+## Licence
+Licence chosen is GNU GPL v3, see Licence file on the same github
+The author of this git is the github user 3nrique0, contact him for details if required.
 
 ## Create the git
 
