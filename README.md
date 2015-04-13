@@ -21,4 +21,5 @@ Normally the first thing to add is `git add README.md`. I used instead a `git ad
 
 ## Testing how to commit only one file
 
-Test added 2 files changed, only 1 to be commited
+Test added 2 files changed, only 1 to be commited.
+Only the files that have been committed will be pushed
