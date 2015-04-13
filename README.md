@@ -18,3 +18,7 @@ This is how it works on local, once you've created your Git on the github websit
 	git push -u origin master
 
 Normally the first thing to add is `git add README.md`. I used instead a `git add *`.
+
+## Testing how to commit only one file
+
+Test added 2 files changed, only 1 to be commited
