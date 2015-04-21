@@ -358,17 +358,47 @@ for j in test.chromList:
 	plt.clf()
 	counter = 0
 
+
+	## PICK ONLY SP OF THIS CHROMOSOME
+	temp_sp = []
+	for l in sp :
+		if l in j:
+			temp_sp.append(l)
+	temp_sp_filtered = test.getDistanceFiltered(temp_sp, test.distance)
+
+
+	## PICK ONLY NOSP OF THIS CHROMOSOME		
+	temp_nosp = []
+	for l in nosp :
+		if l in j:
+			temp_nosp.append(l)
+	temp_nosp_filtered = test.getDistanceFiltered(temp_nosp, test.distance)
+
+
+	## CREATE LISTS OF GENES
+	toPlotFull = dict((k, v) for (k, v) in chnDistanceFilter.iteritems() if v < max_distance)
+	toPlotSp = dict((k, v) for (k, v) in temp_sp_filtered.iteritems() if v < max_distance)
+	toPlotNosp = dict((k, v) for (k, v) in temp_nosp_filtered.iteritems() if v < max_distance)
+	
+
+	
+	## PRINT LENGHT OF LISTS:
+	print("Lenght - Full set: {0}".format(len(toPlotFull)))
+	print("Lenght - SP: {0}".format(len(toPlotSp)))
+	print("Lenght - No SP: {0}".format(len(toPlotNosp)))
+
 	## start making the graphics for all genes
 # 	for i, k in zip(vector, max_y) :
 	for i in vector :
 		plt.clf()
-		toPlotFull = dict((k, v) for (k, v) in chnDistanceFilter.iteritems() if v < max_distance)
+		
 		a, b, c = plt.hist(toPlotFull.values(),  bins = i
 				, range=plotrange
 				#~ , histtype='step'
 				, color=['red'], label=['All genes']
 				, cumulative = True
 				, stacked = True
+				, normed = True
 				)
 		counter +=1
 		plt.title('Ch ' + str(chrom_counter) + \
@@ -376,34 +406,24 @@ for j in test.chromList:
 			str(i) + ' classes - ' + str(plotrange[1]/i) + ' nuc each)')
 # 		plt.ylim(0, k)
 # 		plt.ylim(0)
-		plt.ylim(0, max_y)
+#		plt.ylim(0, max_y)
 
 	## add graphics for only SP
-		temp_sp = []
-		for l in sp :
-			if l in j:
-				temp_sp.append(l)
-		patate = test.getDistanceFiltered(temp_sp, test.distance)
-		toPlotSp = dict((k, v) for (k, v) in patate.iteritems() if v < max_distance)
 		a, b, c = plt.hist( toPlotSp.values(), bins = i\
 			, range=plotrange
 			#~ , histtype='step'\
 			, color=['cyan'], label=['SP']
 			, cumulative = True
+			, normed = True
 			)
 
 	## add graphics for only noSP
-		temp_nosp = []
-		for l in nosp :
-			if l in j:
-				temp_nosp.append(l)
-		patate = test.getDistanceFiltered(temp_nosp, test.distance)
-		toPlotNosp = dict((k, v) for (k, v) in patate.iteritems() if v < max_distance)
 		a, b, c = plt.hist( toPlotNosp.values(), bins = i\
 			, range=plotrange
 			#~ , histtype='step'\
 			, color=['blue'], label=['noSP']
 			, cumulative = True
+			, normed = True
 			)
 
 

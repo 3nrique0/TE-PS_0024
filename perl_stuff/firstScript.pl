@@ -13,6 +13,10 @@ use warnings;
 	wilma	alpaca
 );
 
+$fileTruc = "/media/enrique/Turing/Documents/testGit/TE-PS_0024/perl_stuff";
+if (-e $fileTruc) {
+print "file is there !!";
+}
 
 
 print ("What's your name?\n");
