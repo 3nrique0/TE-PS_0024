@@ -436,3 +436,14 @@ for j in test.chromList:
 
 ## Clear any graphic on the memory
 plt.clf()
+
+
+## NEW FEATURE TO CREATE THE CLASS VECTORS:
+xMax=2000
+master_list = [] ## ??? LIST CONTAINING THE LISTS FOR A CHROM ????
+for biN in vector:
+	bin_amount = [] ## ?? iS THIS A GOOD SPOT ?
+	for i in range(0,xMax, biN):
+		liste_genes_in_bin = [x for x, value in dico if value > i, and value in dico < i+biN+1]
+		## IDK WHERE TO DECLARE THIS LIST  bin_amount
+		bin_amount.append(len(liste_genes))
