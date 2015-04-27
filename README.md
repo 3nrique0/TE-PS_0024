@@ -2,6 +2,9 @@
 
 Testing for my firtst Github training
 
+## Licence
+Licence chosen is GNU GPL v3, see Licence file on the same github
+The author of this git is the github user 3nrique0, contact him for details if required.
 
 ## Create the git
 
@@ -18,8 +21,11 @@ This is how it works on local, once you've created your Git on the github websit
 	git push -u origin master
 
 Normally the first thing to add is `git add README.md`. I used instead a `git add *`.
+<<<<<<< HEAD
 
 ## Testing how to commit only one file
 
 Test added 2 files changed, only 1 to be commited.
 Only the files that have been committed will be pushed
+=======
+>>>>>>> 95a1195d3fb248d040e0c8f95f05f8f7b74001cc
